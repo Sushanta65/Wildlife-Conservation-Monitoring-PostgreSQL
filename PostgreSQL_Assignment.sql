@@ -19,4 +19,17 @@ CREATE TABLE species (
 )
 
 -- Sightings table
+CREATE TABLE sightings (
+    sighting_id SERIAL PRIMARY KEY,
+    ranger_id INTEGER REFERENCES rangers(ranger_id),
+    species_id INTEGER REFERENCES species(species_id),
+    location VARCHAR(100) NOT NULL,
+    sighting_time TIMESTAMP NOT NULL,
+    notes TEXT
+)
+
+
+-- Data Insertion
+
+-- Insert Data into Rangers table
 
