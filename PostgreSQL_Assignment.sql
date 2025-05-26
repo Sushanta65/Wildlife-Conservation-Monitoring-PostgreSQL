@@ -73,5 +73,30 @@ INSERT INTO rangers (name, region) VALUES
 -- Problem - 2
 -- Count unique species ever sighted
 
+SELECT COUNT(DISTINCT species_id) AS unique_species_count FROM sightings;
 
 
+-- Problem - 3
+-- Find all sightings where the location includes "Pass"
+
+SELECT * FROM sightings WHERE location ILIKE '%Pass%'
+
+-- Problem - 4
+-- List each ranger's name and their total number of sightings
+
+SELECT r.name, COUNT(s.sighting_id) AS total_sightings from rangers r
+LEFT JOIN sightings s ON r.ranger_id = s.ranger_id group by r.name;
+
+-- Problem - 5
+-- List species that have never been sighted.
+SELECT common_name FROM species WHERE species_id NOT IN (SELECT DISTINCT species_id FROM sightings)
+
+-- Problem - 6
+-- Show the most recent 2 sightings
+SELECT sp.common_name, s.sighting_time, r.name
+FROM sightings s JOIN species sp ON s.species_id = sp.species_id 
+JOIN rangers r ON s.ranger_id = r.ranger_id 
+ORDER BY s.sighting_time DESC LIMIT 2;
+
+-- Problem - 7
+-- Update all species discovered before year 1800 to have status 'Historic'
