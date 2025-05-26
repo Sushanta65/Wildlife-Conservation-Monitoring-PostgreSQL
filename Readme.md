@@ -13,15 +13,18 @@ Answer:
 
 ### Question 4: Explain the purpose of the WHERE clause in a SELECT statement. (SELECT-এ WHERE কেন ব্যবহার করি?)
 Answer: Select এ Where ব্যবহার করি তখন, যখন আমাদের দরকার শুধু কিছু নির্দিষ্ট তথ্য। অর্থাৎ আমরা যখন কোন নির্দিষ্ট ডেটা বের করতে চাই তখন Select এর সাথে Where ব্যবহার করি। যেমন - 
-  ```sql  SELECT * FROM rangers WHERE name = 'Susanto';
+  ```sql
+    SELECT * FROM rangers WHERE name = 'Susanto';
+```
 
 ### Question 5: What is the significance of the JOIN operation, and how does it work in PostgreSQL? (JOIN কী এবং কেন দরকার?)
 Answer:  দিয়ে দুইটা টেবিলের তথ্য একসাথে দেখা যায়। যেমন, রেঞ্জার কোন কোন প্রানী দেখেছে সেটা জানতে হলে রেঞ্জার টেবিল আর সাইটিং টেবিল একসাথে JOIN করে দেখতে হয়। ধরি আমাদের দুইটা টেবিল আছে- 
 rangers – এখানে রেঞ্জারের নাম, আইডি ইত্যাদি আছে।
 zones – এখানে কোন রেঞ্জার কোন জোনে কাজ করে সেই তথ্য আছে।
-এখন আমরা চাই, রেঞ্জারের নামের পাশে তার জোনের নামও দেখাতে।`
- ```sql   SELECT rangers.name, zones.zone_name
+এখন আমরা চাই, রেঞ্জারের নামের পাশে তার জোনের নামও দেখাতে।
+ ```sql
+    SELECT rangers.name, zones.zone_name
     FROM rangers
-    JOIN zones ON rangers.id = zones.ranger_id;
-    ```
+    JOIN zones ON rangers.id = zones.ranger_id
+```
 এভাবেই আমরা JOIN ব্যবহার করি।
