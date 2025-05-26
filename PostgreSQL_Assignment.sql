@@ -38,7 +38,7 @@ INSERT INTO rangers (name, region) VALUES
     ('Bob White', 'River Delta'),
     ('Carol King', 'Mountain Range')
 
-    select * from rangers
+
 
 -- Insert Data into species table
 INSERT INTO species (common_name, scientific_name, discovery_date, conservation_status) VALUES
@@ -47,7 +47,6 @@ INSERT INTO species (common_name, scientific_name, discovery_date, conservation_
     ('Red Panda', 'Ailurus fulgens', '1825-01-01', 'Vulnerable'),
     ('Asiatic Elephant', 'Elephas maximus indicus', '1758-01-01', 'Endangered')
 
-    select * from species
 
 
 
