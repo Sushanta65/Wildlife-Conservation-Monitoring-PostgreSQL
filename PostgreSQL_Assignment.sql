@@ -77,7 +77,6 @@ SELECT COUNT(DISTINCT species_id) AS unique_species_count FROM sightings;
 
 
 
-
 -- Problem - 3
 -- Find all sightings where the location includes "Pass"
 
@@ -95,7 +94,7 @@ LEFT JOIN sightings s ON r.ranger_id = s.ranger_id group by r.name;
 
 -- Problem - 5
 -- List species that have never been sighted.
-SELECT common_name FROM species WHERE species_id NOT IN (SELECT DISTINCT species_id FROM sightings)
+SELECT common_name FROM species WHERE species_id NOT IN (SELECT DISTINCT species_id FROM sightings);
 
 
 
@@ -134,4 +133,3 @@ FROM sightings;
 DELETE FROM rangers
 WHERE ranger_id NOT IN (SELECT DISTINCT ranger_id FROM sightings);
 
-select * from rangers
